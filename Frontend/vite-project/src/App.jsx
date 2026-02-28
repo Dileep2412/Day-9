@@ -6,7 +6,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/api/notes").then((res) => {
+    axios.get("https://day-9-k04n.onrender.com/api/notes").then((res) => {
       setNotes(res.data.notes);
     });
   }
@@ -23,7 +23,7 @@ const App = () => {
     console.log(title.value, description.value);
 
     axios
-      .post("http://localhost:3000/api/notes", {
+      .post("https://day-9-k04n.onrender.com/api/notes", {
         title: title.value,
         description: description.value,
       })
@@ -35,7 +35,7 @@ const App = () => {
   }
 
   function handleDeleteNote(noteId) {
-    axios.delete("http://localhost:3000/api/notes/" + noteId).then((res) => {
+    axios.delete("https://day-9-k04n.onrender.com/api/notes/" + noteId).then((res) => {
       console.log(res.data);
 
       fetchNotes();
@@ -44,7 +44,7 @@ const App = () => {
 
   function updateNote(id, updatedData) {
     axios
-      .patch(`http://localhost:3000/api/notes/${id}`, updatedData)
+      .patch(`https://day-9-k04n.onrender.com/api/notes/${id}`, updatedData)
       .then((res) => {
         fetchNotes(); // dubara latest data fetch kar lo
       });
